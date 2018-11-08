@@ -1,6 +1,32 @@
 <html>
 <head>
 <title>table</title>
+<script>
+            function validasi(){
+                var npm = document.getElementById('npm');
+                var nama = document.getElementById('nama');
+                var kelas = document.getElementById('kelas');
+ 
+                if (harusDiisi(npm, "npm belum diisi")) {
+                    if (harusDiisi(nama, "nama belum diisi")) {
+                        if (harusDiisi(kelas, "kelas belum diisi")) {
+                            return true;
+                        };
+                    };
+                };
+                return false;
+            }
+ 
+            function harusDiisi(att, msg){
+                if (att.value.length == 0) {
+                    alert(msg);
+                    att.focus();
+                    return false;
+                }
+ 
+                return true;
+            }
+        </script>
 <link rel="stylesheet" type="text/css" href="css\style.css">
 <body>
 	<table border="1">
@@ -38,13 +64,15 @@
 
 	<br>
 
-	<form>
+	
+		<form id="absensi" onsubmit="return validasi()" action="simpan.php" method="post">
+
 		Nama:<br>
-		<input type="text" name="nama"><br>
+		<input type="text" name="nama" id="nama"><br>
 		Kelas:<br>
-		<input type="integer" name="kelas"><br>
+		<input type="integer" name="kelas" id="kelas"><br>
 		NPM:<br>
-		<input type="integer" name="NPM"><br>
+		<input type="integer" name="npm" id="npm"><br>
 		<input type="submit" value="submit"><br>
 		</form>
 
